@@ -26,22 +26,13 @@ if (Meteor.isClient) {
 
     Template.messages.events({
        'click .del_button': function(e) {
-//           for(var i in e) {
-//               console.log(e);
-//           }
-           //alert($(e.target).attr('data-id'));
            Message.remove({_id:$(e.target).attr('data-id')});
        }
     });
 
     Template.messages.messages = function() {
-        //Message.find({}, {sort: {created_at: -1}});
         return Message.find({},{sort:{ created: -1 }});
     };
-
-    Template.messages.body = function() {
-        return this;
-    }
 }
 
 if (Meteor.isServer) {
