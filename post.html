@@ -21,15 +21,10 @@
 <template name="messages">
     <div id="ontent">
         {{#each messages}}
-        <div>
+        <div style="background-color: #ddd">
             <p>content: {{content}}</p>
             <p>投稿時間: {{post_hour}}/{{post_minites}}/{{post_week}}</p>
         </div>
         {{/each}}
     </div>
-</template>
-
-<template name="message">
-    <p>content: {{body}}</p>
-    <p>time</p>
 </template>

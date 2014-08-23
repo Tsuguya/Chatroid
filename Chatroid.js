@@ -32,7 +32,7 @@ if (Meteor.isClient) {
 
     Template.messages.messages = function() {
         //Message.find({}, {sort: {created_at: -1}});
-        return Message.find({},{sort:[["id", "desk"]]});
+        return Message.find({},{sort:{ $natural: -1 }});
     };
 
     Template.messages.body = function() {
