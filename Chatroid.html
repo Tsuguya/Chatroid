@@ -33,11 +33,14 @@
 <template name="messages">
     <div id="ontent">
         {{#each messages}}
-        <div style="background-color: #ddd">
-            <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10;">delete</button>
+        <div style="background-color: #ddd; padding-top: 15px" >
+            <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10">delete</button>
             <div style="position: relative; left: 80px;">
-                <p>content: {{content}}</p>
-                <p>投稿時間: {{post_hour}}/{{post_minites}}/{{post_week}}</p>
+                <div style="background-color: #fff; max-width: 400px;">
+                    <p>内容</p>
+                    <p> {{{content}}}</p>
+                </div>
+                <p>投稿時間: {{post_week}} {{post_hour}}時{{post_minites}}分</p>
             </div>
 
         </div>

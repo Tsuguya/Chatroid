@@ -41,7 +41,6 @@ if (Meteor.isClient) {
     Template.messages.messages = function() {
         var message = Message.find({},{sort:{ created: -1 }});
         var map = message.map(function(e){
-            console.log(e);
            if('post_week' in e) {
                var week = e.post_week;
                switch(week) {
@@ -54,8 +53,14 @@ if (Meteor.isClient) {
                    case '6':week='日曜日';break;
                }
                e.post_week = week;
-               return e;
+
            }
+            console.log(e);
+           if('content' in e) {
+               console.log(111);
+               e.content = e.content.replace(/[\n\r]/g, "<br />");
+           }
+           return e;
 
         });
         return map;
