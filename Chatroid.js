@@ -1,4 +1,4 @@
-var Message = new Meteor.Collection('messages');
+Message = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
 
