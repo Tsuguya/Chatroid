@@ -1,14 +1,49 @@
-<!--<head>-->
-  <!--<title>Chatroid</title>-->
-<!--</head>-->
+<head>
+    <title>post</title>
+</head>
 
-<!--<body>-->
-  <!--{{> hello}}-->
-<!--</body>-->
+<body>
+{{> login}}
+{{> messages}}
+</body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-    <p>test</p>
-  <input type="button" >  {{greeting}}
-    value="Click" />
+<template name="login">
+    <h1>login</h1>
+    <p>{{input}}</p>
+    <p>room_id: <input id="room_id" name="content" required></p>
+    <p>内容: <textarea id="content" rows="4" name="content"></textarea></p>
+    <p>週:
+        <select name="post_week" size="1" id="post_week">
+            <option value="0" selected>月曜日</option>
+            <option value="1">火曜日</option>
+            <option value="2">水曜日</option>
+            <option value="3">木曜日</option>
+            <option value="4">金曜日</option>
+            <option value="5">土曜日</option>
+            <option value="6">日曜日</option>
+        </select>
+    </p>
+    <!--<p>週: <input id="post_week" name="time" /></p>-->
+    <p>時間: <input id="post_hour" type="number" name="time" required></p>
+    <p>分: <input id="post_minites" type="number" name="time" required></p>
+
+    <button id="submit">submit</button>
+</template>
+
+<template name="messages">
+    <div id="ontent">
+        {{#each messages}}
+        <div style="background-color: #ddd; padding-top: 15px" >
+            <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10">delete</button>
+            <div style="position: relative; left: 80px;">
+                <div style="background-color: #fff; max-width: 400px;">
+                    <p>内容</p>
+                    <p> {{{content}}}</p>
+                </div>
+                <p>投稿時間: {{post_week}} {{post_hour}}時{{post_minites}}分</p>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
 </template>
