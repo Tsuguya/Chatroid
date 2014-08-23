@@ -23,8 +23,12 @@
     <div id="ontent">
         {{#each messages}}
         <div style="background-color: #ddd">
-            <p>content: {{content}}</p>
-            <p>投稿時間: {{post_hour}}/{{post_minites}}/{{post_week}}</p>
+            <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10;">delete</button>
+            <div style="position: relative; left: 80px;">
+                <p>content: {{content}}</p>
+                <p>投稿時間: {{post_hour}}/{{post_minites}}/{{post_week}}</p>
+            </div>
+
         </div>
         {{/each}}
     </div>
