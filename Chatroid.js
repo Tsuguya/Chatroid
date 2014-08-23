@@ -3,7 +3,7 @@ Message = new Meteor.Collection('messages');
 if (Meteor.isClient) {
 
   Template.send.input = function () {
-      return "Chatroid ver0.0.1";
+      return "送信内容";
   };
 
     Template.send.events({
