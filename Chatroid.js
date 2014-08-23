@@ -10,10 +10,12 @@ if (Meteor.isClient) {
         'click #submit': function (e) {
 
             Message.insert({
+                room_id:$('#room_id').val(),
                 content:$('#content').val(),
                 post_hour:$('#post_hour').val(),
                 post_minites:$('#post_minites').val(),
-                post_week:$('#post_week').val()
+                post_week:$('#post_week').val(),
+                created: new Date()
             });
             $('#content').val('');
             $('#post_hour').val('');
@@ -32,7 +34,7 @@ if (Meteor.isClient) {
 
     Template.messages.messages = function() {
         //Message.find({}, {sort: {created_at: -1}});
-        return Message.find();
+        return Message.find({},{sort:{ created: -1 }});
     };
 
     Template.messages.body = function() {
