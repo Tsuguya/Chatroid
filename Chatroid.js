@@ -2,11 +2,11 @@ var Message = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
 
-  Template.login.input = function () {
-      return "input";
+  Template.send.input = function () {
+      return "Chatroid ver0.0.1";
   };
 
-    Template.login.events({
+    Template.send.events({
 
         'click #submit': function (e) {
 
