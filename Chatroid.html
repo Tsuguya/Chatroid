@@ -10,8 +10,8 @@
 <template name="send">
     <h1>Chatroid ver0.0.1</h1>
     <p>{{input}}</p>
-    <p>room_id: <input id="room_id" name="content" required></p>
-    <p>内容: <textarea id="content" rows="4" name="content"></textarea></p>
+    <p>room_id: <input id="room_id" name="content" required style="margin-left: 4px"></p>
+    <p>内容: <textarea id="content" rows="4" name="content" style="margin-left: 35px"></textarea></p>
     <p>
         <input type="checkbox" name="post_week" value="0">日曜日
         <input type="checkbox" name="post_week" value="1">月曜日
@@ -22,8 +22,8 @@
         <input type="checkbox" name="post_week" value="6">土曜日
     </p>
     <!--<p>週: <input id="post_week" name="time" /></p>-->
-    <p>時間: <input id="post_hour" type="number" name="time" required></p>
-    <p>分: <input id="post_minites" type="number" name="time" required></p>
+    <p>時間: <input id="post_hour" type="number" name="time" required style="margin-left: 35px"></p>
+    <p>分: <input id="post_minites" type="number" name="time" required style="margin-left: 50px"></p>
 
     <button id="submit">submit</button>
 </template>
@@ -34,6 +34,7 @@
         <div style="background-color: #ddd; padding-top: 15px" >
             <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10">delete</button>
             <div style="position: relative; left: 80px;">
+                <p>room_id: {{room_id}}</p>
                 <div style="background-color: #fff; max-width: 400px;">
                     <p>内容</p>
                     <p> {{{content}}}</p>
