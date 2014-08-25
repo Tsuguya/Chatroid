@@ -2,9 +2,9 @@ Message = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
 
-  Template.send.input = function () {
-      return "Chatroid ver0.0.1";
-  };
+    Template.send.input = function () {
+        return "送信内容";
+    };
 
     Template.send.events({
 
@@ -51,13 +51,13 @@ if (Meteor.isClient) {
                var week = '';
                for(var i in e.post_week) {
                    switch(e.post_week[i]) {
-                       case '0':week +='日曜日';break;
-                       case '1':week +=',月曜日';break;
-                       case '2':week +=',火曜日';break;
-                       case '3':week +=',水曜日';break;
-                       case '4':week +=',木曜日';break;
-                       case '5':week +=',金曜日';break;
-                       case '6':week +=',土曜日';break;
+                       case '0':week +=' 日曜日';break;
+                       case '1':week +=' 月曜日';break;
+                       case '2':week +=' 火曜日';break;
+                       case '3':week +=' 水曜日';break;
+                       case '4':week +=' 木曜日';break;
+                       case '5':week +=' 金曜日';break;
+                       case '6':week +=' 土曜日';break;
                    }
                }
                e.post_week = week;
@@ -73,7 +73,7 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+    Meteor.startup(function () {
+      // code to run on server at startup
+    });
 }
