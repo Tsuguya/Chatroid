@@ -1,5 +1,6 @@
 if (Meteor.isServer) {
 
+
     var chatWorkUrl = "https://api.chatwork.com/v1";
     var accessToken = process.env.CHATWORK_ACCESS_TOKEN; // AccessToken
     //var roomId = "21049030"; // 投稿する先のRoomID
@@ -82,6 +83,7 @@ if (Meteor.isServer) {
 
     Meteor.startup(function () {
         var next = function() {
+            console.log(process.env.TZ);
             var seconds = new Date().getSeconds();
             return (60 - seconds) * 1000;
         };

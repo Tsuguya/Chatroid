@@ -19,11 +19,15 @@ if (Meteor.isClient) {
                 created: new Date()
             };
 
-            $('[name="post_week"]:checked').each(function(){
-                insert.post_week.push($(this).val());
+            $('[name="post_week"]').each(function(){
+              if(this.checked) {
+                insert.post_week.push($(this).attr("value"));
+              }
             });
 
             for(var i in insert) {
+              console.log(insert[i]);
+              console.log(i +': ' + insert[i]);
                 if(insert[i] == '') return;
             }
 
@@ -75,5 +79,13 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
     Meteor.startup(function () {
       // code to run on server at startup
+        if(!('TZ' in process.env && process.env.TZ  === 'Asia/Tokyo')) {
+            process.env.TZ = 'Asia/Tokyo';
+        }
+        Meteor.methods({
+            serverTime: function() {
+                return new Date().toString();
+            }
+        });
     });
 }

@@ -1,1 +1,5 @@
 /* CSS declarations go here */
+paper-button[raisedButton].colored #focusBg,
+    paper-button[raisedButton].colored::shadow #focusBg {
+      background: #3367d6;
+}

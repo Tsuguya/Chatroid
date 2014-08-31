@@ -1,5 +1,46 @@
 <head>
+  <script src="bower_components/platform/platform.js"></script>
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+  <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+  <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
     <title>post</title>
+
+  <style>
+    paper-button {
+      margin: 1em;
+      width: 10em;
+    }
+
+    paper-button.colored {
+      color: #4285f4;
+      fill: #4285f4;
+    }
+
+    paper-button[raisedButton].colored {
+      background: #4285f4;
+      color: #fff;
+    }
+
+    paper-button[raisedButton].colored #ripple,
+    paper-button[raisedButton].colored::shadow #ripple {
+      color: #2a56c6;
+    }
+
+    paper-button[raisedButton].colored #focusBg,
+    paper-button[raisedButton].colored::shadow #focusBg {
+      background: #3367d6;
+    }
+  </style>
 </head>
 
 <body>
@@ -10,22 +51,23 @@
 <template name="send">
     <h1>Chatroid ver0.0.1</h1>
     <p>{{input}}</p>
-    <p>room_id: <input id="room_id" name="content" required style="margin-left: 4px"></p>
-    <p>内容: <textarea id="content" rows="4" name="content" style="margin-left: 35px"></textarea></p>
+    <p><paper-input id="room_id" name="content" label="room_id" required></paper-input></p>
+
+    <p><paper-input id="content" multiline rows="4" maxRows="7" label="内容"></paper-input></p>
     <p>
-        <input type="checkbox" name="post_week" value="0">日曜日
-        <input type="checkbox" name="post_week" value="1">月曜日
-        <input type="checkbox" name="post_week" value="2">火曜日
-        <input type="checkbox" name="post_week" value="3">水曜日
-        <input type="checkbox" name="post_week" value="4">木曜日
-        <input type="checkbox" name="post_week" value="5">金曜日
-        <input type="checkbox" name="post_week" value="6">土曜日
+      <paper-checkbox name="post_week" value="0"></paper-checkbox>日曜日
+      <paper-checkbox name="post_week" value="1"></paper-checkbox>月曜日
+      <paper-checkbox name="post_week" value="2"></paper-checkbox>火曜日
+      <paper-checkbox name="post_week" value="3"></paper-checkbox>水曜日
+      <paper-checkbox name="post_week" value="4"></paper-checkbox>木曜日
+      <paper-checkbox name="post_week" value="5"></paper-checkbox>金曜日
+      <paper-checkbox name="post_week" value="6"></paper-checkbox>土曜日
     </p>
     <!--<p>週: <input id="post_week" name="time" /></p>-->
-    <p>時間: <input id="post_hour" type="number" name="time" required style="margin-left: 35px"></p>
-    <p>分: <input id="post_minites" type="number" name="time" required style="margin-left: 50px"></p>
+    <p><paper-input id="post_hour" name="time" label="時間" required></paper-input></p>
+    <p><paper-input id="post_minites" name="time" label="分" required></paper-input></p>
 
-    <button id="submit">submit</button>
+    <paper-button raisedButton class="colored" label="colored" id="submit">submit</paper-button>
 </template>
 
 <template name="messages">
