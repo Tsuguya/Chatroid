@@ -2,6 +2,9 @@ Message = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
 
+    var current_date = new Date().getDay();
+    Session.set("current_date", current_date);
+
     Template.send.input = function () {
         return "送信内容";
     };
@@ -36,20 +39,36 @@ if (Meteor.isClient) {
             $('#content').val('');
             $('#post_hour').val('');
             $('#post_minites').val('');
-            $('[name="post_week"]:checked').each(function(){
+            $('[name="post_week"]').each(function(){
                 $(this).attr('checked', false);
             });
+
+            document.querySelector('#registToast').show()
+        }
+    });
+
+    Template.tab.current = function() {
+        return current_date;
+    };
+
+    Template.tab.events({
+        'core-select #tab': function(e) {
+            var selected = e.target.selected;
+            Session.set("current_date", selected);
         }
     });
 
     Template.messages.events({
        'click .del_button': function(e) {
+           console.log(this.hoge);
            Message.remove({_id:$(e.target).attr('data-id')});
        }
     });
 
     Template.messages.messages = function() {
-        var message = Message.find({},{sort:{ created: -1 }});
+        var message = Message.find({post_week: String(Session.get("current_date"))}, {
+            sort:{ created: -1 }
+        });
         var map = message.map(function(e){
            if('post_week' in e) {
                var week = '';
@@ -74,6 +93,7 @@ if (Meteor.isClient) {
         });
         return map;
     };
+
 }
 
 if (Meteor.isServer) {

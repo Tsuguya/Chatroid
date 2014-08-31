@@ -13,39 +13,17 @@
   <link rel="import" href="bower_components/paper-progress/paper-progress.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-toast/paper-toast.html">
     <title>post</title>
 
-  <style>
-    paper-button {
-      margin: 1em;
-      width: 10em;
-    }
-
-    paper-button.colored {
-      color: #4285f4;
-      fill: #4285f4;
-    }
-
-    paper-button[raisedButton].colored {
-      background: #4285f4;
-      color: #fff;
-    }
-
-    paper-button[raisedButton].colored #ripple,
-    paper-button[raisedButton].colored::shadow #ripple {
-      color: #2a56c6;
-    }
-
-    paper-button[raisedButton].colored #focusBg,
-    paper-button[raisedButton].colored::shadow #focusBg {
-      background: #3367d6;
-    }
-  </style>
 </head>
 
 <body>
 {{> send}}
-{{> messages}}
+{{> tab}}
+<div id="ontent" class="messages">
+    {{> messages}}
+</div>
 </body>
 
 <template name="send">
@@ -67,12 +45,25 @@
     <p><paper-input id="post_hour" name="time" label="時間" required></paper-input></p>
     <p><paper-input id="post_minites" name="time" label="分" required></paper-input></p>
 
-    <paper-button raisedButton class="colored" label="colored" id="submit">submit</paper-button>
+    <paper-button raisedButton class="colored" label="submit" id="submit"></paper-button>
+
+    <paper-toast id="registToast" text="登録しました。" style="padding-right: 60px;"></paper-toast>
+</template>
+
+<template name="tab">
+    <paper-tabs id="tab" selected="{{current}}" noink>
+        <paper-tab>日曜日</paper-tab>
+        <paper-tab>月曜日</paper-tab>
+        <paper-tab>火曜日</paper-tab>
+        <paper-tab>水曜日</paper-tab>
+        <paper-tab>木曜日</paper-tab>
+        <paper-tab>金曜日</paper-tab>
+        <paper-tab>土曜日</paper-tab>
+    </paper-tabs>
 </template>
 
 <template name="messages">
-    <div id="ontent">
-        {{#each messages}}
+    {{#each messages}}
         <div style="background-color: #ddd; padding-top: 15px" >
             <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10">delete</button>
             <div style="position: relative; left: 80px;">
@@ -85,6 +76,5 @@
             </div>
 
         </div>
-        {{/each}}
-    </div>
+    {{/each}}
 </template>
