@@ -64,7 +64,7 @@
 
 <template name="messages">
     {{#each messages}}
-        <!-- <core-collapse class="collapse"> -->
+        <core-collapse class="collapse" opened>
         <div style="background-color: #ddd; padding-top: 15px" >
             <button class="del_button" data-id="{{_id}}" style="position: absolute; z-index: 10">delete</button>
             <div style="position: relative; left: 80px;">
@@ -76,6 +76,6 @@
                 <p>投稿時間: {{post_week}} {{post_hour}}時{{post_minites}}分</p>
             </div>
         </div>
-        <!-- </core-collapse> -->
+        </core-collapse>
     {{/each}}
 </template>
