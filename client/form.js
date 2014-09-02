@@ -8,11 +8,14 @@ Template.send.events({
         var insert = {
             room_id:$('#room_id').val(),
             content:$('#content').val(),
-            post_hour:$('#post_hour').val(),
-            post_minites:$('#post_minites').val(),
             post_week:[],
             created: new Date()
         };
+
+        var post_time = $('#post_time').val().split(':');
+        if(post_time.length !== 2) return;
+        insert.post_hour = post_time[0];
+        insert.post_minites = post_time[1];
 
         var checked = document.querySelectorAll('paper-checkbox[name="post_week"][checked]').array();
 
@@ -25,10 +28,7 @@ Template.send.events({
         }
 
         Message.insert(insert);
-        $('#room_id').val('');
-        $('#content').val('');
-        $('#post_hour').val('');
-        $('#post_minites').val('');
+        $('.inputform').val('');
         checked.forEach(function(e) {
             e.checked = false;
         });

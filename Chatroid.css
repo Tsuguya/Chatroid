@@ -1,4 +1,50 @@
 /* CSS declarations go here */
+div.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+div.chatworkform {
+    width: 80%;
+    position: relative;
+    margin:0 auto;
+}
+
+div.post {
+    width: inherit;
+    margin: 0 auto;
+}
+
+div.line2 {
+    padding-left:10%;
+}
+
+paper-input {
+    width: inherit;
+    margin-left: 30px;
+}
+
+paper-input::shadow div.label {
+    left: inherit;
+}
+
+paper-input#room_id {
+    width: 45%;
+}
+
+paper-input#post_time {
+    width: 35%;
+}
+
+paper-input#content {
+    width: 75%;
+    margin: 0 auto;
+}
+
+div.line1 {
+    display:-webkit-box;
+}
+
 paper-button {
   margin: 1em;
   width: 10em;
@@ -25,7 +71,7 @@ paper-button[raisedButton].colored::shadow #focusBg {
 }
 
 paper-tabs {
-  max-width: 1000px;
+  max-width: 100%;
 }
 paper-tabs, core-toolbar {
   background-color: #4285f4;
@@ -56,5 +102,41 @@ paper-tabs.transparent-teal paper-tab::shadow #ink {
 }
 
 .messages {
-  max-width: 1000px;
+  /*width: 100%;*/
+  min-height: 400px;
+  max-height: 400px;
+  /*border-style: solid;*/
+  /*border: 3px solid #333;*/
+  border-top: 0;
+  margin-left:2px;
+  margin-right:2px;
+  /*-moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;*/
+
+}
+
+#scroll_aria {
+    max-height: 350px;
+    overflow: scroll;
+    padding-top: 20px;
+    z-index: 1000;
+}
+
+.detail {
+    width: 97%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    position: relative;
+    border: 3px solid #ddd;
+    border-radius: 5px;
+}
+
+paper-icon-button.del_button {
+    position: absolute;
+    right: 20px;
+    z-index: 10;
 }
