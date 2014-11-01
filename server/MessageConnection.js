@@ -3,7 +3,7 @@
  */
 
 Meteor.methods({
-    insertData: function(data) {
+    insertMessage: function(data) {
         for(var i in data) {
             if(data[i] == '') return false;
         }
@@ -13,7 +13,7 @@ Meteor.methods({
         return true;
     },
 
-    updateData: function (id, data) {
+    updateMessage: function (id, data) {
         for(var i in data) {
             if(data[i] == '') return false;
         }
@@ -25,7 +25,7 @@ Meteor.methods({
         return true;
     },
 
-    deleteData: function(id) {
+    deleteMessage: function(id) {
         Message.remove({_id: id});
     }
 });

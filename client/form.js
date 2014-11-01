@@ -32,7 +32,7 @@ Template.send.events({
             insert_value.post_week.push(e.title);
         });
 
-        Meteor.call('insertData', insert_value, function (error, result) {
+        Meteor.call('insertMessage', insert_value, function (error, result) {
             if (error || !result) {
                 // handle error
                 return;
@@ -72,7 +72,7 @@ Template.messages.events({
        var id = this._id;
        collapse.addEventListener('core-collapse-open', function(e) {
            setTimeout(function() {
-               Meteor.call('deleteData', id);
+               Meteor.call('deleteMessage', id);
            }, 330);
        });
        collapse.toggle();
@@ -105,7 +105,7 @@ Template.messages.events({
 
        var id = this._id;
 
-       Meteor.call('updateData', id, update_data, function (error, result) {
+       Meteor.call('updateMessage', id, update_data, function (error, result) {
            if (error || !result) {
                // handle error
                document.getElementById('FailureToast').show();
