@@ -1,3 +1,23 @@
+paper-input#room_id {
+  width: 45%; }
+
+paper-input#post_time {
+  width: 35%; }
+
+paper-input#content {
+  width: 75%;
+  margin: 0 auto; }
+
+paper-icon-button.del_button {
+  position: absolute;
+  right: 20px;
+  z-index: 10; }
+
+paper-tabs.transparent-teal {
+  background-color: transparent;
+  color: #00bcd4;
+  box-shadow: none; }
+
 div.container {
   width: 80%;
   margin: 0 auto; }
