@@ -59,6 +59,12 @@ Template.messages.events({
            }, 330);
        });
        collapse.toggle();
+   },
+
+   'click .edit-link': function(e) {
+       var $parent = $(e.target.parentNode.parentNode);
+       $parent.find('.edit-content').css({display: 'block'});
+       $parent.find('.view-content').css({display: 'none'});
    }
 });
 

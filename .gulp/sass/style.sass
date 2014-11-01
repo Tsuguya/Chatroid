@@ -105,6 +105,53 @@ paper-tabs.transparent-teal paper-tab::shadow #ink
   position: relative
   border: 3px solid #ddd
   border-radius: 5px
+  .main-content
+    width: 92%
+    position: relative
+    left: 5%
+    .post-time
+      margin-left: 20px
+    .post-hr
+      position: absolute
+      top: 20px
+      width: 60%
+      background-color: #ccc
+    .edit-content
+      display: none
+      .content
+        margin-left: 0
+        width: 80%
+
+  @keyframes fadein
+    0%
+      opacity: 0
+    100%
+      opacity: 1
+
+  @keyframes fadeout
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+
+  .edit-link
+    position: absolute
+    bottom: 0px
+    margin: 0
+    padding: 0
+    right: 15px
+    opacity: .0
+    cursor: pointer
+    &:hover
+      opacity: 1
+      animation-name: fadein
+      animation-duration: 1s
+      animation-timing-function: ease
+      animation-delay: 0
+      animation-iteration-count: 1
+      animation-direction: alternate
+
+
 
 paper-icon-button.del_button
   position: absolute
