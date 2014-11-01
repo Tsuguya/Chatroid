@@ -173,6 +173,11 @@ Template.messages.helpers({
                 model.input_content = model.content;
                 model.content = model.content.replace(/[\n\r]/g, '<br />');
             }
+            if('room_id' in model) {
+                room_data = Rooms.findOne({room_id: Number(model.room_id)});
+                model.room_name = room_data.name;
+            }
+
             return model;
 
         });
