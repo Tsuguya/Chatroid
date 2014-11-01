@@ -14,77 +14,6 @@ div.post {
 div.line2 {
   padding-left: 10%; }
 
-paper-input {
-  width: inherit;
-  margin-left: 30px; }
-
-paper-input::shadow div.label {
-  left: inherit; }
-
-paper-input#room_id {
-  width: 45%; }
-
-paper-input#post_time {
-  width: 35%; }
-
-paper-input#content {
-  width: 75%;
-  margin: 0 auto; }
-
-paper-checkbox {
-  margin-left: 0px;
-  margin-right: 10px; }
-
-paper-checkbox::shadow #checkboxLabel {
-  padding-left: 1px; }
-
-paper-button {
-  margin: 1em;
-  width: 10em; }
-
-paper-button.colored {
-  color: #4285f4;
-  fill: #4285f4; }
-
-paper-button[raisedButton].colored {
-  background: #4285f4;
-  color: #fff; }
-
-paper-button[raisedButton].colored #ripple,
-paper-button[raisedButton].colored::shadow #ripple {
-  color: #2a56c6; }
-
-paper-button[raisedButton].colored::shadow #focusBg {
-  background: #3367d6; }
-
-paper-tabs {
-  max-width: 100%; }
-
-paper-tabs, core-toolbar {
-  background-color: #4285f4;
-  color: #fff;
-  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2); }
-
-core-toolbar paper-tabs {
-  box-shadow: none; }
-
-paper-tabs[noink][nobar] paper-tab.core-selected {
-  color: #ffff8d; }
-
-paper-tabs.transparent-teal {
-  background-color: transparent;
-  color: #00bcd4;
-  box-shadow: none; }
-
-paper-tabs.transparent-teal::shadow #selectionBar {
-  background-color: #00bcd4; }
-
-paper-tabs.transparent-teal paper-tab::shadow #ink {
-  color: #00bcd4; }
-
-paper-toast {
-  padding-right: 60px; }
-
 #updateToast::shadow :host {
   background-color: #777; }
 
@@ -185,8 +114,3 @@ paper-toast {
               animation-iteration-count: 1;
       -webkit-animation-direction: alternate;
               animation-direction: alternate; }
-
-paper-icon-button.del_button {
-  position: absolute;
-  right: 20px;
-  z-index: 10; }
