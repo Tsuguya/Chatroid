@@ -2,11 +2,9 @@ var current_date = new Date().getDay();
 Session.set("current_date", current_date);
 
 var updateData = function(id, data) {
-    console.log('hoge');
     for(var i in data) {
         if(data[i] == '') return false;
     }
-    console.log('hoge');
 
     if(!Message.findOne({_id: id})) return false;
 
