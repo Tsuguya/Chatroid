@@ -52,8 +52,11 @@ Template.tab.events({
 Template.messages.events({
    'click .del_button': function(e) {
        var collapse = e.target.parentNode.parentNode;
+       var data_id = e.target.dataset.id;
        collapse.addEventListener('core-collapse-open', function(e) {
-           Message.remove({_id:$(e.target).attr('data-id')});
+           setTimeout(function() {
+               Message.remove({_id:data_id});
+           }, 330);
        });
        collapse.toggle();
    }
