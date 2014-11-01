@@ -1,5 +1,5 @@
 # Chatroid
-Chatへの自動投稿お助けするWebアプリケーションです。
+ChatWorkへの自動投稿をお助けするWebアプリケーションです。
 
 # インストール
 
@@ -17,11 +17,24 @@ $ git clone https://github.com/Tsuguya/Chatroid.git
 
 ````
 
-## Chatroid の起動
-下記のコマンドで起動します。
-ChatWorkのAPIを使うため、アクセストークンを環境変数にいれて起動してください。
+## 環境変数の設定
+ChatWorkのAPIへアクセスするためのアクセストークンを環境変数に設定します。
+ChatWorkAPIのアクセストークン取得方法は[こちら](http://developer.chatwork.com/ja/authenticate.html)を参照して下さい。
+
+このレポジトリのトップディレクトリに.envファイルを作成し、環境変数を設定します。
 
 ````
-$ CHATWORK_ACCESS_TOKEN="チャットワークのアクセストークン " meteor run
+$ cd Chatroid
+$ touch .env
+$ echo CHATWORK_ACCESS_TOKEN="チャットワークのアクセストークン" >> .env
+
+````
+
+
+## Chatroid の起動
+下記のコマンドで起動します。
+
+````
+$ meteor run
 
 ````
