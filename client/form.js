@@ -116,13 +116,7 @@ Template.messages.helpers({
             sort:{ created: -1 }
         });
         return message.map(function(model) {
-            model.sunday = 'false';
-            model.monday = 'false';
-            model.tuesday = 'false';
-            model.wednesday = 'false';
-            model.thursday = 'false';
-            model.friday = 'false';
-            model.saturday = 'false';
+            
             if('post_week' in model) {
                 var week = '';
                 for(var i in model.post_week) {
