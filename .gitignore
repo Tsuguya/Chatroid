@@ -1,2 +1,4 @@
 .env
 .idea
+.gulp/node_modules
+.gulp/.sass-cache
