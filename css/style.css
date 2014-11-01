@@ -1,12 +1,25 @@
 paper-input#room_id {
-  width: 45%; }
+  width: 45%;
+  display: inline-block;
+  position: relative;
+  top: 0;
+  margin-top: 0;
+  padding-top: 0; }
 
 paper-input#post_time {
-  width: 35%; }
+  width: 35%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 7px;
+  padding-top: 0; }
 
 paper-input#content {
   width: 75%;
-  margin: 0 auto; }
+  position: relative;
+  left: 5%; }
+
+#submit {
+  left: 7%; }
 
 paper-icon-button.del_button {
   position: absolute;
@@ -31,8 +44,8 @@ div.post {
   width: inherit;
   margin: 0 auto; }
 
-div.line2 {
-  padding-left: 10%; }
+div.line1 {
+  height: 100px; }
 
 #updateToast::shadow :host {
   background-color: #777; }
