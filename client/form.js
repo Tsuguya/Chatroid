@@ -168,7 +168,7 @@ Template.messages.helpers({
             }
             if('room_id' in model) {
                 room_data = Rooms.findOne({room_id: Number(model.room_id)});
-                model.room_name = room_data.name ? room_data.name : model.room_id ;
+                model.room_name = room_data && ('name' in room_data) ? room_data.name : model.room_id ;
             }
 
             return model;
