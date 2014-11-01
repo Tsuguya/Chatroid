@@ -63,7 +63,6 @@ Template.messages.messages = function() {
     var message = Message.find({post_week: String(Session.get("current_date"))}, {
         sort:{ created: -1 }
     });
-    reload();
     return message.map(function(model){
        if('post_week' in model) {
            var week = '';
@@ -90,32 +89,4 @@ Template.messages.messages = function() {
 
 Template.messages.preserve = function() {
     console.log('test');
-}
-
-
-Template.messages.rendered = function() {
-    //<core-collapse class="collapse">
-    // var items = this.find('.collapse:not([opened])');
-    // console.log(items);
-    //  items.forEach(function(item) {
-    //      console.log(item);
-    //  });
-    // console.log(this.$('core-collapse'));
-    reload();
 };
-
-var tl = true;
-function reload() {
-    // if(!tl) return;
-    // tl = false;
-    //
-    // setTimeout(function() {
-    //     var items = jQuery.find('.collapse:not([opened])');
-    //     if(items) {
-    //         items.forEach(function(item) {
-    //             item.toggle();
-    //         });
-    //     }
-    //     tl = true;
-    // }, 1500);
-}
