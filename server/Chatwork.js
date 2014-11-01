@@ -1,6 +1,5 @@
 var chatWorkUrl = "https://api.chatwork.com/v1";
 var accessToken = process.env.CHATWORK_ACCESS_TOKEN; // AccessToken
-//var roomId = "21049030"; // 投稿する先のRoomID
 var content = ""; // 投稿内容
 var oneMinutes = "60000";
 var week = [
