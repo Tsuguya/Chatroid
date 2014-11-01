@@ -7,14 +7,12 @@ ChatWorkへの自動投稿をお助けするWebアプリケーションです。
 
 ````
 $ curl https://install.meteor.com/ | sh
-
 ````
 
 ## Chatroid のインストール
 
 ````
 $ git clone https://github.com/Tsuguya/Chatroid.git
-
 ````
 
 ## 環境変数の設定
@@ -27,14 +25,11 @@ ChatWorkAPIのアクセストークン取得方法は[こちら](http://develope
 $ cd Chatroid
 $ touch .env
 $ echo CHATWORK_ACCESS_TOKEN="チャットワークのアクセストークン" >> .env
-
 ````
-
 
 ## Chatroid の起動
 下記のコマンドで起動します。
 
 ````
 $ meteor run
-
 ````
