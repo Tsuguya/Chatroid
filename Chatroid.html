@@ -44,13 +44,13 @@
     <div class="chatworkform">
         <div class="post line1">
 
-          <paper-dropdown-menu valign="top">
+          <paper-dropdown-menu id="room_id"  valign="top" valueattr="value" required>
             {{#each rooms}}
-            <paper-item label="{{name}}"></paper-item>
+            <paper-item label="{{name}}" value="{{room_id}}"></paper-item>
             {{/each}}
           </paper-dropdown-menu>
 
-            <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input>
+            <!-- <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input> -->
             <paper-input id="post_time" name="time" label="時間" type="time" class="inputform" required></paper-input>
         </div>
         <div class="post line2">

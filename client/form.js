@@ -26,9 +26,10 @@ var updateData = function(id, data) {
 Template.send.events({
 
     'click #submit': function (e) {
+        rooms_select_box = document.getElementById('room_id');
 
         var insert_value = {
-            room_id:$('#room_id').val(),
+            room_id:rooms_select_box.selected,
             content:$('#content').val(),
             post_week:[],
             created: new Date()
