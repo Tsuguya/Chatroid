@@ -91,8 +91,17 @@
                 <div class="edit-content">
                     <p>
                         <span>room_id: <input class="room-id" type="text" value="{{room_id}}"/></span>
-                        <span class="post-time">投稿時:<input class="post-time-val" type="text" value="{{post_hour}}:{{post_minites}}"/> </span>
+                        <span class="post-time">投稿時間:<input class="post-time-val" type="text" value="{{post_hour}}:{{post_minites}}"/> </span>
                     </p>
+                    <div class="datechoice">
+                        <paper-checkbox name="edit_post_week" title="0" label="日曜日" checked="{{sunday}}"></paper-checkbox>
+                        <paper-checkbox name="edit_post_week" title="1" label="月曜日" checked="{{monday}}"></paper-checkbox>
+                        <paper-checkbox name="edit_post_week" title="2" label="火曜日" checked="{{tuesday}}"></paper-checkbox>
+                        <paper-checkbox name="edit_post_week" title="3" label="水曜日" checked="{{wednesday}}"></paper-checkbox>
+                        <paper-checkbox name="edit_post_week" title="4" label="木曜日" checked="{{thursday}}"></paper-checkbox>
+                        <paper-checkbox name="edit_post_week" title="5" label="金曜日" checked="{{friday}}"></paper-checkbox>
+                        <paper-checkbox name="edit_post_week" title="6" label="土曜日" checked="{{saturday}}"></paper-checkbox>
+                    </div>
                     <hr class="post-hr">
                     <paper-input class="input-content" multiline rows="4" label="内容" maxRows="7" value="{{input_content}}"></paper-input>
 

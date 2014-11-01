@@ -31,6 +31,13 @@ paper-input#content {
   width: 75%;
   margin: 0 auto; }
 
+paper-checkbox {
+  margin-left: 0px;
+  margin-right: 10px; }
+
+paper-checkbox::shadow #checkboxLabel {
+  padding-left: 1px; }
+
 paper-button {
   margin: 1em;
   width: 10em; }
@@ -78,7 +85,7 @@ paper-tabs.transparent-teal paper-tab::shadow #ink {
 paper-toast {
   padding-right: 60px; }
 
-#updateToast::shadow:host {
+#updateToast::shadow :host {
   background-color: #777; }
 
 .messages {
@@ -89,7 +96,8 @@ paper-toast {
   border-top: 0;
   margin-bottom: 100px;
   margin-left: 2px;
-  margin-right: 2px; }
+  margin-right: 2px;
+  padding-bottom: 30px; }
 
 #scroll_aria {
   min-height: 350px;

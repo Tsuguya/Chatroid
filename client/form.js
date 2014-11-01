@@ -93,6 +93,13 @@ Template.messages.events({
        update_data.post_hour = post_time[0];
        update_data.post_minites = post_time[1];
 
+       var $checked = $parent.find('[name="edit_post_week"][aria-checked!="false"]');
+
+       update_data.post_week = [];
+       $checked.each(function() {
+           update_data.post_week.push(this.title);
+       });
+
        var id = this._id;
        if(updateData(id, update_data)) {
            $parent.find('.edit-content').css({display: 'none'});
@@ -110,18 +117,46 @@ Template.messages.helpers({
         var message = Message.find({post_week: String(Session.get("current_date"))}, {
             sort:{ created: -1 }
         });
-        return message.map(function(model){
+        return message.map(function(model) {
+            model.sunday = 'false';
+            model.monday = 'false';
+            model.tuesday = 'false';
+            model.wednesday = 'false';
+            model.thursday = 'false';
+            model.friday = 'false';
+            model.saturday = 'false';
             if('post_week' in model) {
                 var week = '';
                 for(var i in model.post_week) {
                     switch(model.post_week[i]) {
-                        case '0':week +=' 日曜日';break;
-                        case '1':week +=' 月曜日';break;
-                        case '2':week +=' 火曜日';break;
-                        case '3':week +=' 水曜日';break;
-                        case '4':week +=' 木曜日';break;
-                        case '5':week +=' 金曜日';break;
-                        case '6':week +=' 土曜日';break;
+                        case '0':
+                            week +=' 日曜日';
+                            model.sunday = 'true';
+                            break;
+                        case '1':
+                            week +=' 月曜日';
+                            model.monday = 'true';
+                            break;
+                        case '2':
+                            week +=' 火曜日';
+                            model.tuesday = 'true';
+                            break;
+                        case '3':
+                            week +=' 水曜日';
+                            model.wednesday = 'true';
+                            break;
+                        case '4':
+                            week +=' 木曜日';
+                            model.thursday = 'true';
+                            break;
+                        case '5':
+                            week +=' 金曜日';
+                            model.friday = 'true';
+                            break;
+                        case '6':
+                            week +=' 土曜日';
+                            model.saturday = 'true';
+                            break;
                     }
                 }
                 model.post_week = week;
