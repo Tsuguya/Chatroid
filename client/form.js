@@ -1,6 +1,15 @@
 var current_date = new Date().getDay();
 Session.set("current_date", current_date);
 
+
+Template.send.helpers({
+    rooms: function(){
+        rooms_cursor = Rooms.find({});
+        console.log(rooms_cursor);
+        return rooms_cursor;
+    }
+});
+
 var updateData = function(id, data) {
     for(var i in data) {
         if(data[i] == '') return false;
@@ -12,6 +21,7 @@ var updateData = function(id, data) {
 
     return true;
 };
+
 
 Template.send.events({
 
@@ -49,9 +59,15 @@ Template.send.events({
     }
 });
 
+
 Template.tab.helpers({
     current: current_date
 });
+
+
+Template.tab.current = function() {
+    return current_date;
+};
 
 Template.tab.events({
     'core-select #tab': function(e) {

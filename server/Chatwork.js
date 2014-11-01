@@ -12,6 +12,64 @@ var week = [
     {index:6,label:'土'}
 ];
 
+var roomList = [];
+
+/*
+ * ChatWorkAPIを使ってroom_listを取得する
+ * $params
+ *   accessToken = チャットワークのアクセストークン
+ *
+ * $return
+ *   ChetWorkAPIドキュメントを参照
+ *   http://developer.chatwork.com/ja/endpoint_rooms.html#GET-rooms
+ */
+var getRoomList = function(accessToken){
+
+    if(accessToken === null || accessToken === "" || accessToken === undefined){
+        console.log('You need set AccessToken');
+        return false;
+    }
+
+    endPoint = chatWorkUrl + '/rooms';
+    options  = {
+        headers: { "X-ChatWorkToken": accessToken }
+    };
+
+    response = HTTP.get(
+        endPoint,
+        options
+    );
+
+    if(response.statusCode == 200){
+        var rooms_json = JSON.parse(response.content);
+        return rooms_json;
+    }else{
+        return false;
+    }
+};
+
+/*
+ * ChatWorkのRoomの一覧を取得し直す。
+ *
+ */
+var refreshRooms = function(recent_rooms){
+
+    if(recent_rooms === false){
+        return false;
+    }
+
+    recent_rooms.forEach(function(a_room){
+        if( Rooms.findOne({room_id: a_room.room_id}) == undefined ){
+            console.log('insert');
+            Rooms.insert(a_room);
+        } else {
+            console.log('update');
+            Rooms.update({room_id: a_room.room_id}, a_room);
+        };
+    });
+};
+
+
 /**
  * ChatWorkの指定したチャットルームにメッセージを送る
  * accessToken = チャットワークのAccessToken
@@ -77,13 +135,16 @@ var getWeekday = function(dateObj){
     return week[dateObj.getDay()];
 };
 
+
+
 Meteor.startup(function () {
     var next = function() {
-        console.log(process.env.TZ);
         var seconds = new Date().getSeconds();
         return (60 - seconds) * 1000;
     };
 
+    // RoomsをAPIで取得した最新の状態にする。
+    refreshRooms(getRoomList(accessToken));
 
     var postCheck = function() {
         var reservedPosts = getReservedPosts();
