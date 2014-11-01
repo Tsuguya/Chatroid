@@ -15,6 +15,7 @@
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+  <link rel="import" href="bower_components/select-box/dist/select-box.html">
     <title>post</title>
 
 </head>
@@ -39,7 +40,8 @@
     <h1>Chatroid ver0.0.2</h1>
     <div class="chatworkform">
         <div class="post line1">
-            <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input>
+            <!-- <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input> -->
+            <select-box id="rooms"></select-box>
             <paper-input id="post_time" name="time" label="時間" type="time" class="inputform" required></paper-input>
         </div>
         <div class="post line2">

@@ -1,6 +1,20 @@
 var current_date = new Date().getDay();
 Session.set("current_date", current_date);
 
+window.addEventListener('polymer-ready', function() {
+
+    var slow = document.getElementById('rooms');
+
+    var roomList = ["asdf", "wer", "lorem", "ipsum", "tetetete", "foobar"];
+    rooms.available = function (query, callback) {
+        setTimeout(function() {
+            callback(roomList);
+        }, 500);
+    };
+    rooms.selected = ["lorem"];
+
+});
+
 Template.send.events({
 
     'click #submit': function (e) {
@@ -40,7 +54,6 @@ Template.send.events({
 Template.tab.helpers({
     current: current_date
 });
-
 Template.tab.events({
     'core-select #tab': function(e) {
         var selected = e.target.selected;
