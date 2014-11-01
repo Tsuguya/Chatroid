@@ -1,3 +1,23 @@
+paper-input#room_id
+  width: 45%
+
+paper-input#post_time
+  width: 35%
+
+paper-input#content
+  width: 75%
+  margin: 0 auto
+
+paper-icon-button.del_button
+  position: absolute
+  right: 20px
+  z-index: 10
+
+paper-tabs.transparent-teal
+  background-color: transparent
+  color: #00bcd4
+  box-shadow: none
+
 div.container
   width: 80%
   margin: 0 auto
@@ -11,12 +31,14 @@ div.post
   width: inherit
   margin: 0 auto
 
+div.line1
+  display:-webkit-box
+
 div.line2
   padding-left: 10%
 
 #updateToast::shadow :host
   background-color: #777
-
 
 .messages
   /*width: 100%;*/
@@ -28,7 +50,6 @@ div.line2
   margin-left: 2px
   margin-right: 2px
   padding-bottom: 30px
-
 
 #scroll_aria
   min-height: 350px
@@ -81,6 +102,7 @@ div.line2
     100%
       color: #333
       opacity: 1
+
 
   .edit-link
     color: #8c8c8c

@@ -9,19 +9,6 @@ Template.send.helpers({
     }
 });
 
-var updateData = function(id, data) {
-    for(var i in data) {
-        if(data[i] == '') return false;
-    }
-
-    if(!Message.findOne({_id: id})) return false;
-
-    Message.update({_id: id}, { $set: data });
-
-    return true;
-};
-
-
 Template.send.events({
 
     'click #submit': function (e) {
@@ -45,20 +32,22 @@ Template.send.events({
             insert_value.post_week.push(e.title);
         });
 
-        for(var i in insert_value) {
-            if(insert_value[i] == '') return;
-        }
-
-        Message.insert(insert_value);
-        $('.inputform').val('');
-        checked.forEach(function(e) {
-            e.checked = false;
+        Meteor.call('insertMessage', insert_value, function (error, result) {
+            if (error || !result) {
+                // handle error
+                return;
+            } else {
+                //成功したときはフォームを空に
+                $('.inputform').val('');
+                checked.forEach(function(e) {
+                    e.checked = false;
+                });
+                document.querySelector('#registToast').show();
+            }
         });
 
-        document.querySelector('#registToast').show();
     }
 });
-
 
 Template.tab.helpers({
     current: current_date,
@@ -80,9 +69,10 @@ Template.tab.events({
 Template.messages.events({
    'click .del_button': function(e) {
        var collapse = e.target.parentNode.parentNode;
+       var id = this._id;
        collapse.addEventListener('core-collapse-open', function(e) {
            setTimeout(function() {
-               Message.remove({_id: this._id});
+               Meteor.call('deleteMessage', id);
            }, 330);
        });
        collapse.toggle();
@@ -116,14 +106,17 @@ Template.messages.events({
        });
 
        var id = this._id;
-       if(updateData(id, update_data)) {
-           $parent.find('.edit-content').css({display: 'none'});
-           $parent.find('.view-content').css({display: 'block'});
-           document.getElementById('updateToast').show();
-       } else {
-           document.getElementById('FailureToas').show();
-       }
 
+       Meteor.call('updateMessage', id, update_data, function (error, result) {
+           if (error || !result) {
+               // handle error
+               document.getElementById('FailureToast').show();
+           } else {
+               $parent.find('.edit-content').css({display: 'none'});
+               $parent.find('.view-content').css({display: 'block'});
+               document.getElementById('updateToast').show();
+           }
+       });
    }
 });
 

@@ -3,3 +3,4 @@
 TAGS
 .gulp/node_modules
 .gulp/.sass-cache
+.gulp/sass/.sass-cache
