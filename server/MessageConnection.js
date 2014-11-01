@@ -8,6 +8,10 @@ Meteor.methods({
             if(data[i] == '') return false;
         }
 
+        if(data.post_hour.length === 2 && data.post_hour[0] === '0' ){
+            data.post_hour = data.post_hour[1];
+        }
+
         Message.insert(data);
 
         return true;
@@ -19,6 +23,10 @@ Meteor.methods({
         }
 
         if(!Message.findOne({_id: id})) return false;
+
+        if(data.post_hour.length === 2 && data.post_hour[0] === '0' ){
+            data.post_hour = data.post_hour[1];
+        }
 
         Message.update({_id: id}, { $set: data });
 

@@ -1,11 +1,9 @@
 var current_date = new Date().getDay();
 Session.set("current_date", current_date);
 
-
 Template.send.helpers({
     rooms: function(){
         rooms_cursor = Rooms.find({});
-        console.log(rooms_cursor);
         return rooms_cursor;
     }
 });
@@ -13,9 +11,10 @@ Template.send.helpers({
 Template.send.events({
 
     'click #submit': function (e) {
+        rooms_select_box = document.getElementById('room_id');
 
         var insert_value = {
-            room_id:$('#room_id').val(),
+            room_id:rooms_select_box.selected,
             content:$('#content').val(),
             post_week:[],
             created: new Date()
@@ -50,7 +49,7 @@ Template.send.events({
 });
 
 Template.tab.helpers({
-    current: current_date
+    current: current_date,
 });
 
 
@@ -85,9 +84,11 @@ Template.messages.events({
    },
 
    'click .submit': function(e) {
+       rooms_select_box = document.getElementById('edit_room_id');
+
        var $parent = $(e.target.parentNode.parentNode);
        var update_data = {
-           room_id: $parent.find('.room-id').val(),
+           room_id: rooms_select_box.selected,
            content: $parent.find('.input-content').val()
        };
 
@@ -165,10 +166,21 @@ Template.messages.helpers({
                 model.input_content = model.content;
                 model.content = model.content.replace(/[\n\r]/g, '<br />');
             }
+            if('room_id' in model) {
+                room_data = Rooms.findOne({room_id: Number(model.room_id)});
+                model.room_name = room_data.name ? room_data.name : model.room_id ;
+            }
+
             return model;
 
         });
+    },
+    rooms: function(){
+        rooms_cursor = Rooms.find({});
+        return rooms_cursor;
     }
+
+
 });
 
 Template.messages.preserve = function() {

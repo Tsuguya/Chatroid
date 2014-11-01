@@ -44,13 +44,13 @@
     <div class="chatworkform">
         <div class="post line1">
 
-          <paper-dropdown-menu valign="top">
+          <paper-dropdown-menu id="room_id"  valign="top" valueattr="value" required>
             {{#each rooms}}
-            <paper-item label="{{name}}"></paper-item>
+            <paper-item label="{{name}}" value="{{room_id}}"></paper-item>
             {{/each}}
           </paper-dropdown-menu>
 
-            <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input>
+            <!-- <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input> -->
             <paper-input id="post_time" name="time" label="時間" type="time" class="inputform" required></paper-input>
         </div>
         <div class="post line2">
@@ -91,7 +91,7 @@
             <div class="main-content">
                 <div class="view-content">
                     <p class="location-info">
-                        <span>room_id: {{room_id}}</span>
+                        <span>Room: {{room_name}}</span>
                         <span class="post-time">投稿時間: {{post_week}} {{post_hour}}時{{post_minites}}分</span>
                     </p>
                     <hr class="post-hr">
@@ -101,7 +101,14 @@
                 </div>
                 <div class="edit-content">
                     <p>
-                        <span>room_id: <input class="room-id" type="text" value="{{room_id}}"/></span>
+                        <span>Room: 
+                          <paper-dropdown-menu id="edit_room_id"  class="room_id"  valign="top" valueattr="value" selected="{{room_id}}"  required>
+                            {{#each rooms}}
+                            <paper-item label="{{name}}" value="{{room_id}}"></paper-item>
+                            {{/each}}
+                          </paper-dropdown-menu>
+                          <!-- <input class="room-id" type="text" value="{{room_id}}"/> -->
+                        </span>
                         <span class="post-time">投稿時間:<paper-input label="時間" type="time" class="post-time-val"  value="{{post_hour}}:{{post_minites}}" required></paper-input></span>
                     </p>
                     <div class="datechoice">
