@@ -4,7 +4,6 @@ Session.set("current_date", current_date);
 Template.send.helpers({
     rooms: function(){
         rooms_cursor = Rooms.find({});
-        console.log(rooms_cursor);
         return rooms_cursor;
     }
 });
@@ -178,7 +177,6 @@ Template.messages.helpers({
     },
     rooms: function(){
         rooms_cursor = Rooms.find({});
-        console.log(rooms_cursor);
         return rooms_cursor;
     }
 

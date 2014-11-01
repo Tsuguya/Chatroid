@@ -60,10 +60,8 @@ var refreshRooms = function(recent_rooms){
 
     recent_rooms.forEach(function(a_room){
         if( Rooms.findOne({room_id: a_room.room_id}) == undefined ){
-            console.log('insert');
             Rooms.insert(a_room);
         } else {
-            console.log('update');
             Rooms.update({room_id: a_room.room_id}, a_room);
         };
     });
