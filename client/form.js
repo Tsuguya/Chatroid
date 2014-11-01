@@ -37,9 +37,9 @@ Template.send.events({
     }
 });
 
-Template.tab.current = function() {
-    return current_date;
-};
+Template.tab.helpers({
+    current: current_date
+});
 
 Template.tab.events({
     'core-select #tab': function(e) {
@@ -62,33 +62,35 @@ Template.messages.events({
    }
 });
 
-Template.messages.messages = function() {
-    var message = Message.find({post_week: String(Session.get("current_date"))}, {
-        sort:{ created: -1 }
-    });
-    return message.map(function(model){
-       if('post_week' in model) {
-           var week = '';
-           for(var i in model.post_week) {
-               switch(model.post_week[i]) {
-                   case '0':week +=' 日曜日';break;
-                   case '1':week +=' 月曜日';break;
-                   case '2':week +=' 火曜日';break;
-                   case '3':week +=' 水曜日';break;
-                   case '4':week +=' 木曜日';break;
-                   case '5':week +=' 金曜日';break;
-                   case '6':week +=' 土曜日';break;
-               }
-           }
-           model.post_week = week;
-       }
-       if('content' in model) {
-           model.content = model.content.replace(/[\n\r]/g, '<br />');
-       }
-       return model;
+Template.messages.helpers({
+    messages: function() {
+        var message = Message.find({post_week: String(Session.get("current_date"))}, {
+            sort:{ created: -1 }
+        });
+        return message.map(function(model){
+            if('post_week' in model) {
+                var week = '';
+                for(var i in model.post_week) {
+                    switch(model.post_week[i]) {
+                        case '0':week +=' 日曜日';break;
+                        case '1':week +=' 月曜日';break;
+                        case '2':week +=' 火曜日';break;
+                        case '3':week +=' 水曜日';break;
+                        case '4':week +=' 木曜日';break;
+                        case '5':week +=' 金曜日';break;
+                        case '6':week +=' 土曜日';break;
+                    }
+                }
+                model.post_week = week;
+            }
+            if('content' in model) {
+                model.content = model.content.replace(/[\n\r]/g, '<br />');
+            }
+            return model;
 
-    });
-};
+        });
+    }
+});
 
 Template.messages.preserve = function() {
     console.log('test');
