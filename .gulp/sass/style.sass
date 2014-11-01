@@ -141,28 +141,26 @@ paper-toast
 
   @keyframes fadein
     0%
-      opacity: 0
+      color: #8c8c8c
+      opacity: .3
     100%
+      color: #333
       opacity: 1
-
-  @keyframes fadeout
-    0%
-      opacity: 1
-    100%
-      opacity: 0
 
   .edit-link
+    color: #8c8c8c
     position: absolute
     bottom: 0px
     margin: 0
     padding: 0
     right: 15px
-    opacity: .0
+    opacity: .3
     cursor: pointer
     &:hover
+      color: #333
       opacity: 1
       animation-name: fadein
-      animation-duration: 1s
+      animation-duration: 0.4s
       animation-timing-function: ease
       animation-delay: 0
       animation-iteration-count: 1
