@@ -1,4 +1,5 @@
 Message = new Meteor.Collection('messages');
+Rooms = new Mongo.Collection('rooms');
 
 if (Meteor.isServer) {
     Meteor.startup(function () {

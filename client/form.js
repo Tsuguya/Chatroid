@@ -3,15 +3,23 @@ Session.set("current_date", current_date);
 
 window.addEventListener('polymer-ready', function() {
 
-    var slow = document.getElementById('rooms');
+    var rooms = document.getElementById('rooms');
 
-    var roomList = ["asdf", "wer", "lorem", "ipsum", "tetetete", "foobar"];
+    // Roomの名前一覧
+    roomNameList = (function(){
+        rooms_cursor = Rooms.find({});
+        list = [];
+        rooms_cursor.forEach(function(r){
+            list.push(r.name);
+        });
+        return list;
+    })();
+
     rooms.available = function (query, callback) {
         setTimeout(function() {
-            callback(roomList);
+            callback(roomNameList);
         }, 500);
     };
-    rooms.selected = ["lorem"];
 
 });
 

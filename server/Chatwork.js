@@ -35,11 +35,40 @@ var getRoomList = function(accessToken){
         headers: { "X-ChatWorkToken": accessToken }
     };
 
-    return HTTP.get(
+    response = HTTP.get(
         endPoint,
         options
     );
+
+    if(response.statusCode == 200){
+        var rooms_json = JSON.parse(response.content);
+        return rooms_json;
+    }else{
+        return false;
+    }
 };
+
+/*
+ * ChatWorkのRoomの一覧を取得し直す。
+ *
+ */
+var refreshRooms = function(recent_rooms){
+
+    if(recent_rooms === false){
+        return false;
+    }
+
+    recent_rooms.forEach(function(a_room){
+        if( Rooms.findOne({room_id: a_room.room_id}) == undefined ){
+            console.log('insert');
+            Rooms.insert(a_room);
+        } else {
+            console.log('update');
+            Rooms.update({room_id: a_room.room_id}, a_room);
+        };
+    });
+};
+
 
 
 /**
@@ -108,12 +137,15 @@ var getWeekday = function(dateObj){
 };
 
 
+
 Meteor.startup(function () {
     var next = function() {
-        console.log(process.env.TZ);
         var seconds = new Date().getSeconds();
         return (60 - seconds) * 1000;
     };
+
+    // RoomsをAPIで取得した最新の状態にする。
+    refreshRooms(getRoomList(accessToken));
 
     var postCheck = function() {
         var reservedPosts = getReservedPosts();
