@@ -5,7 +5,7 @@ Template.send.events({
 
     'click #submit': function (e) {
 
-        var insert = {
+        var insert_value = {
             room_id:$('#room_id').val(),
             content:$('#content').val(),
             post_week:[],
@@ -14,20 +14,20 @@ Template.send.events({
 
         var post_time = $('#post_time').val().split(':');
         if(post_time.length !== 2) return;
-        insert.post_hour = post_time[0];
-        insert.post_minites = post_time[1];
+        insert_value.post_hour = post_time[0];
+        insert_value.post_minites = post_time[1];
 
         var checked = document.querySelectorAll('paper-checkbox[name="post_week"][checked]').array();
 
         checked.forEach(function(e) {
-            insert.post_week.push(e.title);
+            insert_value.post_week.push(e.title);
         });
 
-        for(var i in insert) {
-            if(insert[i] == '') return;
+        for(var i in insert_value) {
+            if(insert_value[i] == '') return;
         }
 
-        Message.insert(insert);
+        Message.insert(insert_value);
         $('.inputform').val('');
         checked.forEach(function(e) {
             e.checked = false;
