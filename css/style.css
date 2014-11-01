@@ -118,20 +118,26 @@ paper-toast {
     width: 92%;
     position: relative;
     left: 5%; }
+    .detail .main-content .view-content .post-content {
+      padding-top: 20px; }
     .detail .main-content .post-time {
       margin-left: 20px; }
     .detail .main-content .post-hr {
-      position: absolute;
+      position: relative;
       top: 20px;
-      width: 60%;
+      margin-bottom: 10px;
+      width: 100%;
       background-color: #ccc; }
     .detail .main-content .edit-content {
       display: none; }
       .detail .main-content .edit-content .input-content {
         margin-left: 0;
-        width: 80%; }
+        width: 100%; }
       .detail .main-content .edit-content .submit {
         margin-left: 0; }
+      .detail .main-content .edit-content .post-time-val {
+        display: inline-block;
+        width: 20%; }
 @-webkit-keyframes fadein {
   0% {
     color: #8c8c8c;

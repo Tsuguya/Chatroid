@@ -95,14 +95,14 @@
                         <span class="post-time">投稿時間: {{post_week}} {{post_hour}}時{{post_minites}}分</span>
                     </p>
                     <hr class="post-hr">
-                    <p class="content"> {{{content}}}</p>
+                    <p class="content post-content"> {{{content}}}</p>
 
                     <p class="edit-link">Edit</p>
                 </div>
                 <div class="edit-content">
                     <p>
                         <span>room_id: <input class="room-id" type="text" value="{{room_id}}"/></span>
-                        <span class="post-time">投稿時間:<input class="post-time-val" type="text" value="{{post_hour}}:{{post_minites}}"/> </span>
+                        <span class="post-time">投稿時間:<paper-input label="時間" type="time" class="post-time-val"  value="{{post_hour}}:{{post_minites}}" required></paper-input></span>
                     </p>
                     <div class="datechoice">
                         <paper-checkbox name="edit_post_week" title="0" label="日曜日" checked="{{sunday}}"></paper-checkbox>
