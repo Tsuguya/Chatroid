@@ -101,7 +101,14 @@
                 </div>
                 <div class="edit-content">
                     <p>
-                        <span>room_id: <input class="room-id" type="text" value="{{room_id}}"/></span>
+                        <span>Room: 
+                          <paper-dropdown-menu id="edit_room_id"  class="room_id"  valign="top" valueattr="value" selected="{{room_id}}"  required>
+                            {{#each rooms}}
+                            <paper-item label="{{name}}" value="{{room_id}}"></paper-item>
+                            {{/each}}
+                          </paper-dropdown-menu>
+                          <!-- <input class="room-id" type="text" value="{{room_id}}"/> -->
+                        </span>
                         <span class="post-time">投稿時間:<paper-input label="時間" type="time" class="post-time-val"  value="{{post_hour}}:{{post_minites}}" required></paper-input></span>
                     </p>
                     <div class="datechoice">
