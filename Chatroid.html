@@ -24,7 +24,7 @@
 
 {{> send}}
 {{> tab}}
-<div id="ontent" class="messages">
+<div id="message_contents" class="messages">
     <paper-shadow z="1">
         <div id="scroll_aria">
         {{> messages}}
@@ -96,7 +96,7 @@
                     <hr class="post-hr">
                     <paper-input class="input-content" multiline rows="4" label="内容" maxRows="7" value="{{input_content}}"></paper-input>
 
-                    <input class="submit" type="submit" value="更新"/>
+                    <paper-button raisedButton class="colored submit" label="Update" id="submit"></paper-button>
                 </div>
             </div>
 

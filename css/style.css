@@ -75,10 +75,15 @@ paper-tabs.transparent-teal::shadow #selectionBar {
 paper-tabs.transparent-teal paper-tab::shadow #ink {
   color: #00bcd4; }
 
+paper-toast {
+  padding-right: 60px; }
+
+#updateToast::shadow:host {
+  background-color: #777; }
+
 .messages {
   /*width: 100%; */
   min-height: 400px;
-  max-height: 400px;
   /*border-style: solid; */
   /*border: 3px solid #333; */
   border-top: 0;
@@ -86,7 +91,7 @@ paper-tabs.transparent-teal paper-tab::shadow #ink {
   margin-right: 2px; }
 
 #scroll_aria {
-  max-height: 350px;
+  min-height: 350px;
   overflow: scroll;
   padding-top: 20px;
   z-index: 1000; }
@@ -113,7 +118,7 @@ paper-tabs.transparent-teal paper-tab::shadow #ink {
       background-color: #ccc; }
     .detail .main-content .edit-content {
       display: none; }
-      .detail .main-content .edit-content .content {
+      .detail .main-content .edit-content .input-content {
         margin-left: 0;
         width: 80%; }
 @-webkit-keyframes fadein {
