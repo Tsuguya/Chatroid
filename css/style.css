@@ -87,6 +87,7 @@ paper-toast {
   /*border-style: solid; */
   /*border: 3px solid #333; */
   border-top: 0;
+  margin-bottom: 100px;
   margin-left: 2px;
   margin-right: 2px; }
 
@@ -121,6 +122,8 @@ paper-toast {
       .detail .main-content .edit-content .input-content {
         margin-left: 0;
         width: 80%; }
+      .detail .main-content .edit-content .submit {
+        margin-left: 0; }
 @-webkit-keyframes fadein {
   0% {
     opacity: 0;
