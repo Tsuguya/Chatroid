@@ -4,9 +4,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var please = require('gulp-pleeease');
+var plumber = require('gulp-plumber');
 
 gulp.task('sass', function () {
     return gulp.src('sass/*.sass')
+        .pipe(plumber())
         .pipe(sass())
         .pipe(please({
             minifier: false
