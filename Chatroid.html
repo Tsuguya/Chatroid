@@ -55,7 +55,9 @@
         <paper-button raisedButton class="colored" label="submit" id="submit"></paper-button>
     </div>
 
-    <paper-toast id="registToast" text="登録しました。" style="padding-right: 60px;"></paper-toast>
+    <paper-toast id="registToast" text="登録しました。"></paper-toast>
+    <paper-toast id="updateToast" text="更新しました。"></paper-toast>
+    <paper-toast id="FailureToast" text="失敗しました。"></paper-toast>
 </template>
 
 <template name="tab">
@@ -88,11 +90,11 @@
                 </div>
                 <div class="edit-content">
                     <p>
-                        <span>room_id: <input type="text" value="{{room_id}}"/></span>
-                        <span class="post-time">投稿時:<input type="text"/> </span>
+                        <span>room_id: <input class="room-id" type="text" value="{{room_id}}"/></span>
+                        <span class="post-time">投稿時:<input class="post-time-val" type="text" value="{{post_hour}}:{{post_minites}}"/> </span>
                     </p>
                     <hr class="post-hr">
-                    <paper-input class="content" multiline rows="4" label="内容" maxRows="7" value="{{content}}"></paper-input>
+                    <paper-input class="input-content" multiline rows="4" label="内容" maxRows="7" value="{{input_content}}"></paper-input>
 
                     <input class="submit" type="submit" value="更新"/>
                 </div>

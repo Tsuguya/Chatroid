@@ -1,6 +1,20 @@
 var current_date = new Date().getDay();
 Session.set("current_date", current_date);
 
+var updateData = function(id, data) {
+    console.log('hoge');
+    for(var i in data) {
+        if(data[i] == '') return false;
+    }
+    console.log('hoge');
+
+    if(!Message.findOne({_id: id})) return false;
+
+    Message.update({_id: id}, { $set: data });
+
+    return true;
+};
+
 Template.send.events({
 
     'click #submit': function (e) {
@@ -65,6 +79,29 @@ Template.messages.events({
        var $parent = $(e.target.parentNode.parentNode);
        $parent.find('.edit-content').css({display: 'block'});
        $parent.find('.view-content').css({display: 'none'});
+   },
+
+   'click .submit': function(e) {
+       var $parent = $(e.target.parentNode.parentNode);
+       var update_data = {
+           room_id: $parent.find('.room-id').val(),
+           content: $parent.find('.input-content').val()
+       };
+
+       var post_time = $parent.find('.post-time-val').val().split(':');
+       if(post_time.length !== 2) return;
+       update_data.post_hour = post_time[0];
+       update_data.post_minites = post_time[1];
+
+       var id = this._id;
+       if(updateData(id, update_data)) {
+           $parent.find('.edit-content').css({display: 'none'});
+           $parent.find('.view-content').css({display: 'block'});
+           document.getElementById('updateToast').show();
+       } else {
+           document.getElementById('FailureToas').show();
+       }
+
    }
 });
 
@@ -90,6 +127,7 @@ Template.messages.helpers({
                 model.post_week = week;
             }
             if('content' in model) {
+                model.input_content = model.content;
                 model.content = model.content.replace(/[\n\r]/g, '<br />');
             }
             return model;
