@@ -14,81 +14,6 @@ div.post
 div.line2
   padding-left: 10%
 
-paper-input
-  width: inherit
-  margin-left: 30px
-
-paper-input::shadow div.label
-  left: inherit
-
-paper-input#room_id
-  width: 45%
-
-paper-input#post_time
-  width: 35%
-
-paper-input#content
-  width: 75%
-  margin: 0 auto
-
-paper-checkbox
-  margin-left: 0px
-  margin-right: 10px
-
-paper-checkbox::shadow #checkboxLabel
-  padding-left: 1px
-
-div.line1
-  display:-webkit-box
-
-paper-button
-  margin: 1em
-  width: 10em
-
-paper-button.colored
-  color: #4285f4
-  fill: #4285f4
-
-paper-button[raisedButton].colored
-  background: #4285f4
-  color: #fff
-
-paper-button[raisedButton].colored #ripple,
-paper-button[raisedButton].colored::shadow #ripple
-  color: #2a56c6
-
-paper-button[raisedButton].colored #focusBg
-paper-button[raisedButton].colored::shadow #focusBg
-  background: #3367d6
-
-paper-tabs
-  max-width: 100%
-
-paper-tabs, core-toolbar
-  background-color: #4285f4
-  color: #fff
-  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2)
-
-core-toolbar paper-tabs
-  box-shadow: none
-
-paper-tabs[noink][nobar] paper-tab.core-selected
-  color: #ffff8d
-
-paper-tabs.transparent-teal
-  background-color: transparent
-  color: #00bcd4
-  box-shadow: none
-
-paper-tabs.transparent-teal::shadow #selectionBar
-  background-color: #00bcd4
-
-paper-tabs.transparent-teal paper-tab::shadow #ink
-  color: #00bcd4
-
-paper-toast
-  padding-right: 60px
-
 #updateToast::shadow :host
   background-color: #777
 
@@ -124,53 +49,54 @@ paper-toast
     width: 92%
     position: relative
     left: 5%
+    .view-content
+      .location-info
+        margin-top: 30px
+        margin-bottom: 0
+      .post-content
+        padding-top: 20px
     .post-time
       margin-left: 20px
     .post-hr
-      position: absolute
+      position: relative
       top: 20px
-      width: 60%
+      margin-bottom: 10px
+      width: 100%
       background-color: #ccc
     .edit-content
       display: none
       .input-content
         margin-left: 0
-        width: 80%
+        width: 100%
       .submit
         margin-left: 0
+      .post-time-val
+        display: inline-block
+        width: 20%
 
   @keyframes fadein
     0%
-      opacity: 0
+      color: #8c8c8c
+      opacity: .3
     100%
+      color: #333
       opacity: 1
-
-  @keyframes fadeout
-    0%
-      opacity: 1
-    100%
-      opacity: 0
 
   .edit-link
+    color: #8c8c8c
     position: absolute
     bottom: 0px
     margin: 0
     padding: 0
     right: 15px
-    opacity: .0
+    opacity: .3
     cursor: pointer
     &:hover
+      color: #333
       opacity: 1
       animation-name: fadein
-      animation-duration: 1s
+      animation-duration: 0.4s
       animation-timing-function: ease
       animation-delay: 0
       animation-iteration-count: 1
       animation-direction: alternate
-
-
-
-paper-icon-button.del_button
-  position: absolute
-  right: 20px
-  z-index: 10

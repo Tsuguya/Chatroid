@@ -81,10 +81,9 @@ Template.tab.events({
 Template.messages.events({
    'click .del_button': function(e) {
        var collapse = e.target.parentNode.parentNode;
-       var data_id = e.target.dataset.id;
        collapse.addEventListener('core-collapse-open', function(e) {
            setTimeout(function() {
-               Message.remove({_id:data_id});
+               Message.remove({_id: this._id});
            }, 330);
        });
        collapse.toggle();
@@ -133,7 +132,7 @@ Template.messages.helpers({
             sort:{ created: -1 }
         });
         return message.map(function(model) {
-            
+
             if('post_week' in model) {
                 var week = '';
                 for(var i in model.post_week) {
