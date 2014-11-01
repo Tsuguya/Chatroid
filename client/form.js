@@ -44,9 +44,16 @@ Template.send.events({
     }
 });
 
+
 Template.tab.helpers({
     current: current_date
 });
+
+
+Template.tab.current = function() {
+    return current_date;
+};
+
 Template.tab.events({
     'core-select #tab': function(e) {
         var selected = e.target.selected;
