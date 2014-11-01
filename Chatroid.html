@@ -1,21 +1,24 @@
 <head>
   <script src="bower_components/platform/platform.js"></script>
+  <!-- <\!-- <link rel="import" href="bower_components/font-roboto/roboto.html"> -\-> -->
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
-  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <!-- <\!-- <link rel="import" href="bower_components/core-header-panel/core-header-panel.html"> -\-> -->
+  <!-- <link rel="import" href="bower_components/core-icons/core-icons.html"> -->
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
-  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <!-- <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html"> -->
   <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
-  <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
-  <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
-  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
-  <link rel="import" href="bower_components/paper-slider/paper-slider.html">
-  <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+  <!-- <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html"> -->
+  <!-- <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html"> -->
+  <!-- <link rel="import" href="bower_components/paper-fab/paper-fab.html"> -->
+  <!-- <\!-- <link rel="import" href="bower_components/paper-slider/paper-slider.html"> -\-> -->
+  <!-- <\!-- <link rel="import" href="bower_components/paper-progress/paper-progress.html"> -\-> -->
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="bower_components/core-input/core-input.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
-  <link rel="import" href="bower_components/core-collapse/core-collapse.html">
-  <link rel="import" href="bower_components/select-box/dist/select-box.html">
+  <!-- <link rel="import" href="bower_components/core-collapse/core-collapse.html"> -->
     <title>post</title>
 
 </head>
@@ -25,7 +28,7 @@
 
 {{> send}}
 {{> tab}}
-<div id="ontent" class="messages">
+<div id="content" class="messages">
     <paper-shadow z="1">
         <div id="scroll_aria">
         {{> messages}}
@@ -40,8 +43,14 @@
     <h1>Chatroid ver0.0.2</h1>
     <div class="chatworkform">
         <div class="post line1">
+
+          <paper-dropdown-menu valign="top">
+            {{#each rooms}}
+            <paper-item label="{{name}}"></paper-item>
+            {{/each}}
+          </paper-dropdown-menu>
+
             <!-- <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input> -->
-            <select-box id="rooms"></select-box>
             <paper-input id="post_time" name="time" label="時間" type="time" class="inputform" required></paper-input>
         </div>
         <div class="post line2">

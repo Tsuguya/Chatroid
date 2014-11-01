@@ -70,7 +70,6 @@ var refreshRooms = function(recent_rooms){
 };
 
 
-
 /**
  * ChatWorkの指定したチャットルームにメッセージを送る
  * accessToken = チャットワークのAccessToken

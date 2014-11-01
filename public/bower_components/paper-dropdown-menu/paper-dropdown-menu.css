@@ -12,24 +12,48 @@
   position: relative;
   display: inline-block;
   background-color: #fff;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  padding: 0.75em 0;
 }
 
-#control core-item {
-  margin-left: 12px;
-  max-width: inherit;
+#control {
+  box-sizing: border-box;
+  max-height: 2em;
+  color: #757575;
+  border-bottom: 1px solid #757575;
 }
 
-#control core-item::shadow #label {
+#control[selected] {
+  color: #000;
+}
+
+#control > div {
+  padding: 0.5em 0 0.25em;
   overflow: hidden;
   /* FIXME not working for some reason */
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-#arrow {
-  margin: 0 12px;
+core-icon {
+  margin: 0.3em 0 0.2em 0.25em;
+}
+
+#dropdown {
+  margin: 12px;
 }
 
 #menu {
-  padding: 0 12px;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.menu-container {
+  overflow: auto;
+  max-height: 100%;
+  max-width: 100%;
 }

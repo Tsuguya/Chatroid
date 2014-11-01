@@ -1,28 +1,13 @@
 var current_date = new Date().getDay();
 Session.set("current_date", current_date);
 
-window.addEventListener('polymer-ready', function() {
-
-    var rooms = document.getElementById('rooms');
-
-    // Roomの名前一覧
-    roomNameList = (function(){
+Template.send.helpers({
+    rooms: function(){
         rooms_cursor = Rooms.find({});
-        list = [];
-        rooms_cursor.forEach(function(r){
-            list.push(r.name);
-        });
-        return list;
-    })();
-
-    rooms.available = function (query, callback) {
-        setTimeout(function() {
-            callback(roomNameList);
-        }, 500);
-    };
-
+        console.log(rooms_cursor);
+        return rooms_cursor;
+    }
 });
-
 Template.send.events({
 
     'click #submit': function (e) {
