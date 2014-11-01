@@ -1,0 +1,176 @@
+div.container
+  width: 80%
+  margin: 0 auto
+
+div.chatworkform
+  width: 80%
+  position: relative
+  margin: 0 auto
+
+div.post
+  width: inherit
+  margin: 0 auto
+
+div.line2
+  padding-left: 10%
+
+paper-input
+  width: inherit
+  margin-left: 30px
+
+paper-input::shadow div.label
+  left: inherit
+
+paper-input#room_id
+  width: 45%
+
+paper-input#post_time
+  width: 35%
+
+paper-input#content
+  width: 75%
+  margin: 0 auto
+
+paper-checkbox
+  margin-left: 0px
+  margin-right: 10px
+
+paper-checkbox::shadow #checkboxLabel
+  padding-left: 1px
+
+div.line1
+  display:-webkit-box
+
+paper-button
+  margin: 1em
+  width: 10em
+
+paper-button.colored
+  color: #4285f4
+  fill: #4285f4
+
+paper-button[raisedButton].colored
+  background: #4285f4
+  color: #fff
+
+paper-button[raisedButton].colored #ripple,
+paper-button[raisedButton].colored::shadow #ripple
+  color: #2a56c6
+
+paper-button[raisedButton].colored #focusBg
+paper-button[raisedButton].colored::shadow #focusBg
+  background: #3367d6
+
+paper-tabs
+  max-width: 100%
+
+paper-tabs, core-toolbar
+  background-color: #4285f4
+  color: #fff
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2)
+
+core-toolbar paper-tabs
+  box-shadow: none
+
+paper-tabs[noink][nobar] paper-tab.core-selected
+  color: #ffff8d
+
+paper-tabs.transparent-teal
+  background-color: transparent
+  color: #00bcd4
+  box-shadow: none
+
+paper-tabs.transparent-teal::shadow #selectionBar
+  background-color: #00bcd4
+
+paper-tabs.transparent-teal paper-tab::shadow #ink
+  color: #00bcd4
+
+paper-toast
+  padding-right: 60px
+
+#updateToast::shadow :host
+  background-color: #777
+
+
+.messages
+  /*width: 100%;*/
+  min-height: 400px
+  /*border-style: solid;*/
+  /*border: 3px solid #333;*/
+  border-top: 0
+  margin-bottom: 100px
+  margin-left: 2px
+  margin-right: 2px
+  padding-bottom: 30px
+
+
+#scroll_aria
+  min-height: 350px
+  overflow: scroll
+  padding-top: 20px
+  z-index: 1000
+
+.detail
+  width: 97%
+  margin: 0 auto
+  margin-top: 20px
+  padding-top: 15px
+  padding-bottom: 10px
+  position: relative
+  border: 3px solid #ddd
+  border-radius: 5px
+  .main-content
+    width: 92%
+    position: relative
+    left: 5%
+    .post-time
+      margin-left: 20px
+    .post-hr
+      position: absolute
+      top: 20px
+      width: 60%
+      background-color: #ccc
+    .edit-content
+      display: none
+      .input-content
+        margin-left: 0
+        width: 80%
+      .submit
+        margin-left: 0
+
+  @keyframes fadein
+    0%
+      opacity: 0
+    100%
+      opacity: 1
+
+  @keyframes fadeout
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+
+  .edit-link
+    position: absolute
+    bottom: 0px
+    margin: 0
+    padding: 0
+    right: 15px
+    opacity: .0
+    cursor: pointer
+    &:hover
+      opacity: 1
+      animation-name: fadein
+      animation-duration: 1s
+      animation-timing-function: ease
+      animation-delay: 0
+      animation-iteration-count: 1
+      animation-direction: alternate
+
+
+
+paper-icon-button.del_button
+  position: absolute
+  right: 20px
+  z-index: 10
