@@ -118,6 +118,9 @@ paper-toast {
     width: 92%;
     position: relative;
     left: 5%; }
+    .detail .main-content .view-content .location-info {
+      margin-top: 30px;
+      margin-bottom: 0; }
     .detail .main-content .view-content .post-content {
       padding-top: 20px; }
     .detail .main-content .post-time {
