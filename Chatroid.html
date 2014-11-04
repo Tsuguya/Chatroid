@@ -19,7 +19,7 @@
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="bower_components/select-box/dist/select-box.html">
   <link rel="import" href="bower_components/core-collapse/core-collapse.html">
-    <title>post</title>
+  <title>Chatroid</title>
 
 </head>
 
@@ -38,95 +38,3 @@
 
     </div>
 </body>
-
-<template name="send">
-    <h1>Chatroid ver0.0.2</h1>
-    <div class="chatworkform">
-        <div class="post line1">
-
-          <paper-dropdown-menu id="room_id"  valign="top" valueattr="value" required>
-            {{#each rooms}}
-            <paper-item label="{{name}}" value="{{room_id}}"></paper-item>
-            {{/each}}
-          </paper-dropdown-menu>
-
-            <!-- <paper-input id="room_id" name="content" label="room_id" class="inputform" required></paper-input> -->
-            <paper-input id="post_time" name="time" label="時間" type="time" class="inputform" required></paper-input>
-        </div>
-        <div class="post line2">
-            <paper-checkbox name="post_week" title="0" label="日曜日"></paper-checkbox>
-            <paper-checkbox name="post_week" title="1" label="月曜日"></paper-checkbox>
-            <paper-checkbox name="post_week" title="2" label="火曜日"></paper-checkbox>
-            <paper-checkbox name="post_week" title="3" label="水曜日"></paper-checkbox>
-            <paper-checkbox name="post_week" title="4" label="木曜日"></paper-checkbox>
-            <paper-checkbox name="post_week" title="5" label="金曜日"></paper-checkbox>
-            <paper-checkbox name="post_week" title="6" label="土曜日"></paper-checkbox>
-        </div>
-        <paper-input id="content" multiline rows="4" maxRows="7" label="内容" class="inputform"></paper-input>
-        <paper-button raisedButton class="colored" label="submit" id="submit"></paper-button>
-    </div>
-
-    <paper-toast id="registToast" text="登録しました。"></paper-toast>
-    <paper-toast id="updateToast" text="更新しました。"></paper-toast>
-    <paper-toast id="FailureToast" text="失敗しました。"></paper-toast>
-</template>
-
-<template name="tab">
-    <paper-tabs id="tab" selected="{{current}}">
-        <paper-tab>日曜日</paper-tab>
-        <paper-tab>月曜日</paper-tab>
-        <paper-tab>火曜日</paper-tab>
-        <paper-tab>水曜日</paper-tab>
-        <paper-tab>木曜日</paper-tab>
-        <paper-tab>金曜日</paper-tab>
-        <paper-tab>土曜日</paper-tab>
-    </paper-tabs>
-</template>
-
-<template name="messages">
-    {{#each messages}}
-        <core-collapse class="collapse" opened>
-        <div class="detail" >
-            <paper-icon-button data-id="{{_id}}" icon="close" role="button" tabindex="0" aria-label="close" class="del_button"></paper-icon-button>
-            <div class="main-content">
-                <div class="view-content">
-                    <p class="location-info">
-                        <span>Room: {{room_name}}</span>
-                        <span class="post-time">投稿時間: {{post_week}} {{post_hour}}時{{post_minites}}分</span>
-                    </p>
-                    <hr class="post-hr">
-                    <p class="content post-content"> {{{content}}}</p>
-
-                    <p class="edit-link">Edit</p>
-                </div>
-                <div class="edit-content">
-                    <p>
-                        <span>Room: 
-                          <paper-dropdown-menu id="edit_room_id"  class="room_id"  valign="top" valueattr="value" selected="{{room_id}}"  required>
-                            {{#each rooms}}
-                            <paper-item label="{{name}}" value="{{room_id}}"></paper-item>
-                            {{/each}}
-                          </paper-dropdown-menu>
-                          <!-- <input class="room-id" type="text" value="{{room_id}}"/> -->
-                        </span>
-                        <span class="post-time">投稿時間:<paper-input label="時間" type="time" class="post-time-val"  value="{{post_hour}}:{{post_minites}}" required></paper-input></span>
-                    </p>
-                    <div class="datechoice">
-                        <paper-checkbox name="edit_post_week" title="0" label="日曜日" checked="{{sunday}}"></paper-checkbox>
-                        <paper-checkbox name="edit_post_week" title="1" label="月曜日" checked="{{monday}}"></paper-checkbox>
-                        <paper-checkbox name="edit_post_week" title="2" label="火曜日" checked="{{tuesday}}"></paper-checkbox>
-                        <paper-checkbox name="edit_post_week" title="3" label="水曜日" checked="{{wednesday}}"></paper-checkbox>
-                        <paper-checkbox name="edit_post_week" title="4" label="木曜日" checked="{{thursday}}"></paper-checkbox>
-                        <paper-checkbox name="edit_post_week" title="5" label="金曜日" checked="{{friday}}"></paper-checkbox>
-                        <paper-checkbox name="edit_post_week" title="6" label="土曜日" checked="{{saturday}}"></paper-checkbox>
-                    </div>
-                    <hr class="post-hr">
-                    <paper-input class="input-content" multiline rows="4" label="内容" maxRows="7" value="{{input_content}}"></paper-input>
-
-                    <paper-button raisedButton class="colored submit" label="Update"></paper-button>
-                </div>
-            </div>
-        </div>
-        </core-collapse>
-    {{/each}}
-</template>

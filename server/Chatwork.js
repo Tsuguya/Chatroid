@@ -1,7 +1,6 @@
 var chatWorkUrl = "https://api.chatwork.com/v1";
 var accessToken = process.env.CHATWORK_ACCESS_TOKEN; // AccessToken
 var content = ""; // 投稿内容
-var oneMinutes = "60000";
 var week = [
     {index:0,label:'日'},
     {index:1,label:'月'},
@@ -108,13 +107,6 @@ var getReservedPosts = function(now){
 
     console.log( searchObj );
 
-    messages.forEach(function(msg){
-        console.log(msg.content);
-        console.log(msg.post_hour);
-        console.log(msg.post_minites);
-        console.log(msg.post_week);
-    });
-
     return messages;
 };
 
@@ -133,14 +125,11 @@ var getWeekday = function(dateObj){
     return week[dateObj.getDay()];
 };
 
-
+/**
+ * Created by tsuguya on 14/11/03.
+ */
 
 Meteor.startup(function () {
-    var next = function() {
-        var seconds = new Date().getSeconds();
-        return (60 - seconds) * 1000;
-    };
-
     // RoomsをAPIで取得した最新の状態にする。
     refreshRooms(getRoomList(accessToken));
 
@@ -151,9 +140,10 @@ Meteor.startup(function () {
             postMsgToChat(accessToken, msg.room_id, msg.content);
         });
 
-        Meteor.setTimeout(postCheck,next());
+        Meteor.setTimeout(postCheck,getNextCheckTime());
     };
 
-    Meteor.setTimeout(postCheck,next());
-
+    Meteor.setTimeout(postCheck,getNextCheckTime());
 });
+
+
